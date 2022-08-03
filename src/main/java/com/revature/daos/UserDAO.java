@@ -66,8 +66,6 @@ public class UserDAO implements DataSourceCRUD<User> {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             ResultSet results = pstmt.executeQuery();
 
-
-
             while(results.next()) {
                 User user = new User();
                 user.setUserId(results.getInt("user_id"));

@@ -27,8 +27,6 @@ public class ConnectionManager {
     private static void connect() {
         //connect to database here
         //The connection string we want to build for postgres: 	jdbc:postgresql://hostname:port/databaseName
-
-
         try {
             Properties props = new Properties();
             //This part is commented out, because we are using the class path loading method instead
@@ -36,8 +34,6 @@ public class ConnectionManager {
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
             InputStream input = loader.getResourceAsStream("jdbc.properties");
             props.load(input);
-
-
 
             String host = props.getProperty("host");
             String port = props.getProperty("port");
@@ -59,15 +55,9 @@ public class ConnectionManager {
             builder.append(password);
             builder.append("&currentSchema=public");
 
-
             Class.forName(driver);
 
-
             connection = DriverManager.getConnection(builder.toString());
-
-
-
-
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -78,8 +68,5 @@ public class ConnectionManager {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
-
-
 }
