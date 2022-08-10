@@ -1,32 +1,46 @@
 package com.revature.consoleUI;
 
+import com.revature.services.ConsoleService;
 
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Position;
-import javax.swing.text.View;
-import java.awt.*;
+import java.sql.SQLOutput;
+import java.util.Scanner;
 
 //we will be replacing it with an API very soon.
-public class MainMenu extends View {
-
-
-    @Override
-    public float getPreferredSpan(int axis) {
-        return 0;
+public class MainMenu extends View{
+    public MainMenu() {
+        viewName = "MainMenu";
+        consoleService = ConsoleService.getConsoleService();
     }
 
     @Override
-    public void paint(Graphics g, Shape allocation) {
+    public void renderView() {
+        System.out.println("==================Main Menu================");
+        System.out.println("N) New User \n U) Update User \n D) Delete User");
 
-    }
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
 
-    @Override
-    public Shape modelToView(int pos, Shape a, Position.Bias b) throws BadLocationException {
-        return null;
-    }
+        switch (input){
+            case "N":
+                System.out.println("Navigating...");
+                consoleService.navigate("NewUser");
+                break;
+            case "U":
+                consoleService.navigate("UpdateUser");
+                break;
+            case "D":
+                consoleService.navigate("DeleteUser");
+                break;
+            case "G":
+                consoleService.navigate("GetUser");
+                break;
+            case "A":
+                consoleService.navigate("GetAllUsers");
+                break;
+            case "Q":
+                consoleService.quit();
+                break;
+        }
 
-    @Override
-    public int viewToModel(float x, float y, Shape a, Position.Bias[] biasReturn) {
-        return 0;
     }
 }

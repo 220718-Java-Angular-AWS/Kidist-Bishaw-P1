@@ -43,7 +43,7 @@ public class EmployeeDAO implements DataSourceCRUD<Employee> {
         Employee employee = new Employee();
 
         try {
-            String sql = "SELECT * FROM employees WHERE emp_id = ?";
+            String sql = "SELECT * FROM employees WHERE c = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();

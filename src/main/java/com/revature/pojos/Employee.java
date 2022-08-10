@@ -14,6 +14,14 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(String firstName, String lastName, String email, String password, String role) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
     public Employee(Integer employeeId, String firstName, String lastName, String email, String password, String role) {
         this.employeeId = employeeId;
         this.firstName = firstName;
@@ -23,13 +31,7 @@ public class Employee {
         this.role = role;
     }
 
-    public Employee(String firstName, String lastName, String email, String password, String role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
+
 
     public Integer getEmployeeId() {
         return employeeId;
